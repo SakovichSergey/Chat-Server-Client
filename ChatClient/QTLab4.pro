@@ -12,11 +12,13 @@ SOURCES += \
     client.cpp \
     main.cpp \
     message.cpp \
+    shifro.cpp \
     widget.cpp
 
 HEADERS += \
     client.h \
     message.h \
+    shifro.h \
     widget.h
 
 # Default rules for deployment.

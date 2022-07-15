@@ -3,6 +3,7 @@
 #include<QObject>
 #include<QString>
 #include<QStringList>
+#include <shifro.h>
 
 class Message : public QObject
 {

@@ -36,6 +36,7 @@ public:
     QString adress; //Адресс
     int nport; //Номер порта
     bool privMess; //Флаг приватного сообщения
+    Shifro *cryptDecryptor; //Шифровальщик/расшифровальщик
     client *chatClient; //Клиент
     Message *outMessage; // Сообщение
     Widget(QWidget *parent = nullptr); //Конструктор

@@ -201,6 +201,10 @@ void Widget::change_PrivateUser()
 void Widget::accept_Message()
 {
    QString mess;
+      if(useShifro->isChecked()==true && chatClient->nMessage->messageAttributes == "Protected")
+      {
+          chatClient->nMessage->messageText = cryptDecryptor->code_ToMessage(chatClient->nMessage->messageText);
+      }
    if(chatClient->nMessage->messageAttributes == "Public")
    mess=chatClient->nMessage->messageSender +":"+chatClient->nMessage->messageText;
    else if(chatClient->nMessage->messageAttributes == "Personal")

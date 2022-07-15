@@ -53,5 +53,6 @@ public slots:
     void accept_Message();  //Слот приема сообщения
     void add_NewUser(QString userName); //Слот добавления нового пользователя
     void set_UserList(QStringList userList); //Слот получение списка пользователей
+    void create_Cryptor();//создание шифровальщика/расшифровальщика
 };
 #endif // WIDGET_H

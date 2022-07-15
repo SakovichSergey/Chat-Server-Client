@@ -158,6 +158,15 @@ void Widget::send_Message()
     outMessage->messageAttributes ="Personal";
     if(outMessage->messageAttributes =="Personal" && privMess == true)
         outMessage->messageAttributes ="Private";
+    if(useShifro->isChecked()==true)
+       {
+         outMessage->messageAttributes ="Protected";
+         outMessage->messageText = cryptDecryptor->message_ToCode(mess->text());
+       }
+       else
+       {
+       outMessage->messageText = mess->text();
+       }
     outMessage->create_Message();
     chatClient->clientSock->write(QByteArray::fromStdString(outMessage->message.toStdString()));
 }
@@ -225,5 +234,19 @@ void Widget::set_UserList(QStringList userList)
     for(int i = 0; i<userList.length();i++)
     if(userList[i]!="")
     userListBox->addItem(userList[i]);
+}
+void Widget::create_Cryptor()
+{
+    if(useShifro->isChecked()==true)
+    {
+        ctWND->append("Inputs encryption key.");
+        cryptDecryptor = new Shifro(encryptKey->text());
+    }
+    else if(useShifro->isChecked()==false)
+    {
+        ctWND->append("Encryption is out");
+        cryptDecryptor->~Shifro();
+    }
+
 }
 

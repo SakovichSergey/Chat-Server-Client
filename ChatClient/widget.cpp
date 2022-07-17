@@ -24,6 +24,7 @@ void Widget::click_Start()
     adress = adr[0];
     nport = adr[1].toInt();
     username = name->text();
+    setWindowTitle("Chat:"+username);
     chatClient =  new client(adress,nport);
     if(chatClient->clientSock->isValid())
        {
@@ -73,6 +74,7 @@ void Widget::use_Encryption()
 }
 void Widget::set_UserInterface()
 {
+    setWindowTitle("ChatClient");
     form = new QHBoxLayout(); //Главная форма
     twoButton = new QHBoxLayout();//Слой с кнопками отправить и настройка
     chatLayout = new QVBoxLayout(); //Слой окна чата

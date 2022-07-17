@@ -15,6 +15,7 @@ Widget::Widget(QWidget *parent)
     connect(mess,&QLineEdit::returnPressed,this, &Widget::send_Message);
     connect(userListBox,&QListWidget::clicked, this, &Widget::change_User);
     connect(userListBox,&QListWidget::doubleClicked, this, &Widget::change_PrivateUser);
+    connect(useShifro,&QCheckBox::clicked, this, &Widget::create_Cryptor);
 }
 
 void Widget::click_Start()
@@ -213,6 +214,7 @@ void Widget::accept_Message()
       if(useShifro->isChecked()==true && chatClient->nMessage->messageAttributes == "Protected")
       {
           chatClient->nMessage->messageText = cryptDecryptor->code_ToMessage(chatClient->nMessage->messageText);
+          mess =chatClient->nMessage->messageSender+" protected:"+chatClient->nMessage->messageText;
       }
    if(chatClient->nMessage->messageAttributes == "Public")
    mess=chatClient->nMessage->messageSender +":"+chatClient->nMessage->messageText;

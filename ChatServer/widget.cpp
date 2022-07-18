@@ -48,6 +48,12 @@ void Widget::pushExitButton()
     exit(EXIT_FAILURE);
 }
 
+void Widget::doubleClickDelUser()
+{
+    QString str = userListBox->item(userListBox->currentRow())->text();
+    delUser(str);
+}
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
 {
@@ -59,6 +65,7 @@ Widget::Widget(QWidget *parent)
     connect(chatServer,&Server::newUser, this, &Widget::addNewUser);
     connect(chatServer->msg,&Message::newMessage, this, &Widget::acceptMessage);
     connect(chatServer->msg,&Message::del_User, this, &Widget::delUser);
+    connect(userListBox,&QListWidget::doubleClicked, this, &Widget::doubleClickDelUser);
 
 }
 
@@ -101,7 +108,6 @@ void Widget::createUIForm()
     userListLayot->addWidget(exitButton);
     form->addLayout( userListLayot);
     setLayout(form);
-
 }
 void Widget::addNewUser(QString userName)
 {

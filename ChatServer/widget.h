@@ -32,6 +32,7 @@ class Widget : public QWidget
     void fillMessageTable(Message *message);
     void clickMessageButton();
     void pushExitButton();
+    void doubleClickDelUser();
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();

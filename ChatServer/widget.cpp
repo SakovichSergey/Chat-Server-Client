@@ -43,6 +43,11 @@ void Widget::clickMessageButton()
     }
 }
 
+void Widget::pushExitButton()
+{
+    exit(EXIT_FAILURE);
+}
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
 {
@@ -50,6 +55,7 @@ Widget::Widget(QWidget *parent)
     chatServer= new Server(3232);
     userList = new QVector<ChatUser>;
     connect(sendMessageButton, &QPushButton::clicked, this, &Widget::clickMessageButton);
+    connect(exitButton, &QPushButton::clicked, this, &Widget::pushExitButton);
     connect(chatServer,&Server::newUser, this, &Widget::addNewUser);
     connect(chatServer->msg,&Message::newMessage, this, &Widget::acceptMessage);
     connect(chatServer->msg,&Message::del_User, this, &Widget::delUser);
@@ -90,6 +96,9 @@ void Widget::createUIForm()
     sendMessageButton = new QPushButton();
     sendMessageButton->setText("Отправить");
     userListLayot->addWidget(sendMessageButton);
+    exitButton = new QPushButton();
+    exitButton->setText("Выход");
+    userListLayot->addWidget(exitButton);
     form->addLayout( userListLayot);
     setLayout(form);
 

@@ -22,7 +22,7 @@ class Widget : public QWidget
     QTableWidget    *messageTable;
     QListWidget     *userListBox;
     QLineEdit       *messageEdit;
-    QPushButton     *sendMessageButton;
+    QPushButton     *sendMessageButton,*exitButton;
     QLabel          *lblUserList,   *lblTableChat,  *lblMessageEdit;
     QDateTime        currentTime;
     QVector<ChatUser> *userList;
@@ -31,6 +31,7 @@ class Widget : public QWidget
     QTableWidgetItem* stringToMessageTableItem(QString str);
     void fillMessageTable(Message *message);
     void clickMessageButton();
+    void pushExitButton();
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();

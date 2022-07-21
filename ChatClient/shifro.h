@@ -17,6 +17,7 @@ public:
     Shifro(QString Key);
     QString message_ToCode(QString message);
     QString code_ToMessage(QString cipherText);
+    QString messToCodeTwo(QString message);
 };
 
 #endif // SHIFRO_H

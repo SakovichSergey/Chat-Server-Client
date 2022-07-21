@@ -82,6 +82,20 @@ QString Shifro::code_ToMessage(QString cipherText)
     return message;
 }
 
+QString Shifro::messToCodeTwo(QString message)
+{
+    QString code;
+    for(int i=0;i<message.size();i++)
+    {
+        int s = message[i].unicode();//message[i].cell();
+
+
+
+        code[i] = s;
+    }
+    return code;
+}
+
 int Shifro::symbol_ToCode(int symbol, QVector<int>tabl)
 {
     return tabl[symbol];

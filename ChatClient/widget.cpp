@@ -164,7 +164,7 @@ void Widget::send_Message()
     if(useShifro->isChecked()==true)
        {
          outMessage->messageAttributes ="Protected";
-         outMessage->messageText = cryptDecryptor->message_ToCode(mess->text());
+         outMessage->messageText = cryptDecryptor->messToCodeTwo(mess->text());//message_ToCode(mess->text());
        }
        else
        {

@@ -4,7 +4,7 @@
 #include<QVector>
 #include<string.h>
 #include <uchar.h>
-
+#include <qdebug.h>
 class Shifro
 {
     QString key; //235abc.

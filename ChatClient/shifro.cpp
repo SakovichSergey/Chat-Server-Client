@@ -85,13 +85,16 @@ QString Shifro::code_ToMessage(QString cipherText)
 QString Shifro::messToCodeTwo(QString message)
 {
     QString code;
+    QByteArray bMas = message.toLocal8Bit();
+    char * str = bMas.data();
+  //  char *cSymMas = new char[message.size()];
     for(int i=0;i<message.size();i++)
     {
-        int s = message[i].unicode();//message[i].cell();
+       // unsigned char s = static_cast<unsigned char>(cmas[i]);//message[i].cell();
+        qDebug() << str[i];
 
 
-
-        code[i] = s;
+       //cSymMas[i] = static_cast<char>(s);
     }
     return code;
 }

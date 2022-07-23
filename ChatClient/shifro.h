@@ -9,6 +9,7 @@ class Shifro
 {
     QString key; //235abc.
     QVector<QVector<int>> tabl;
+    int *cryptoTabl;
     int symbol_ToCode(int symbol, QVector<int> tabl);
     int code_ToSymbol (int code, QVector<int> tabl);
     QVector<int> init_Tabl(int keyVal);

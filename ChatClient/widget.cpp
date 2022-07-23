@@ -215,7 +215,7 @@ void Widget::accept_Message()
    QString mess;
       if(useShifro->isChecked()==true && chatClient->nMessage->messageAttributes == "Protected")
       {
-          chatClient->nMessage->messageText = cryptDecryptor->code_ToMessage(chatClient->nMessage->messageText);
+          chatClient->nMessage->messageText = cryptDecryptor->codeToMessTwo(chatClient->nMessage->messageText);
           mess =chatClient->nMessage->messageSender+" protected:"+chatClient->nMessage->messageText;
       }
    if(chatClient->nMessage->messageAttributes == "Public")

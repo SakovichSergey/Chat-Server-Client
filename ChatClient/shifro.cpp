@@ -47,6 +47,7 @@ Shifro::Shifro(QString Key):key(Key)
     QVector<int> m = key_transform();
     for(int i =0; i< m.size(); i++)
         tabl.push_back(init_Tabl(m[i]));
+     cryptoTabl  = new int[65535];
 }
 
 QString Shifro::message_ToCode(QString message)
@@ -85,10 +86,8 @@ QString Shifro::code_ToMessage(QString cipherText)
 QString Shifro::messToCodeTwo(QString message)
 {
     QString code;
-    cryptoTabl  = new int[65535];
     for(int i=0;i<message.size();i++)
     {
-
         int symVal = message[i].unicode();
         for (int itr=0; itr< key.size(); itr++)
         {
@@ -97,9 +96,22 @@ QString Shifro::messToCodeTwo(QString message)
             symVal +=7;
         code[i] = cryptoTabl[symVal];
         qDebug() << message[i] << "\t"<< code[i];
-       //cSymMas[i] = static_cast<char>(s);
     }
     return code;
+}
+
+QString Shifro::codeToMessTwo(QString cipherText)
+{
+    QString message;
+    for(int i=0;i<cipherText.size();i++)
+    {
+        int symVal = cipherText[i].unicode();
+        symVal -= 7;
+        for(int itr=0; itr< key.size(); itr++)
+           symVal += key[itr].unicode();
+        message[i]=cryptoTabl[symVal];
+    }
+    return message;
 }
 
 int Shifro::symbol_ToCode(int symbol, QVector<int>tabl)

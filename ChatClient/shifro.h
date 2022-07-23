@@ -19,6 +19,7 @@ public:
     QString message_ToCode(QString message);
     QString code_ToMessage(QString cipherText);
     QString messToCodeTwo(QString message);
+    QString codeToMessTwo(QString cipherText);
 };
 
 #endif // SHIFRO_H

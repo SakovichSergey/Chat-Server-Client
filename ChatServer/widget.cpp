@@ -129,7 +129,7 @@ void Widget::acceptMessage(Message *msg)
 {
     messageTable->insertRow(messageTable->rowCount());
     fillMessageTable(msg);
-    if(msg->messageAttributes=="Public" || msg->messageAttributes=="Personal")
+    if(msg->messageAttributes=="Public" || msg->messageAttributes=="Personal"||msg->messageAttributes=="Protected")
         chatServer->sendNewPublicMessage(msg->getMessage());
     else if(msg->messageAttributes=="Private")
         chatServer->sendNewPrivateMessage(msg->messageSender,msg->messageRecipient,msg->getMessage());

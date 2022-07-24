@@ -48,6 +48,8 @@ Shifro::Shifro(QString Key):key(Key)
     for(int i =0; i< m.size(); i++)
         tabl.push_back(init_Tabl(m[i]));
      cryptoTabl  = new int[65535];
+     for(size_t itr=0;itr <65536; itr++)
+     cryptoTabl[itr] = itr;
 }
 
 QString Shifro::message_ToCode(QString message)
